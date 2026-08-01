@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Tahun Baru, Sayang! ❤️</title>
+  <style>
+    /* Reset & Styling Dasar */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    /* Kartu Ucapan */
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      position: relative;
+      z-index: 10;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #ff758c;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #e0e0e0;
+      margin-bottom: 25px;
+    }
+
+    /* Tombol Interaktif */
+    .btn {
+      background: linear-gradient(45deg, #ff758c, #ff7eb3);
+      border: none;
+      color: white;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 117, 140, 0.6);
+    }
+
+    /* Pesan Rahasia (Awalnya tersembunyi) */
+    .secret-message {
+      display: none;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-style: italic;
+      color: #ffd1d7;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Efek Hati Melayang */
+    .heart {
+      position: absolute;
+      color: #ff4b2b;
+      font-size: 20px;
+      animation: floatUp 4s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Happy New Year, Sayang! ✨❤️</h1>
+    <p>
+      Terima kasih sudah menjadi bagian terindah di tahun yang lalu. 
+      Semoga di tahun yang baru ini, cinta kita makin erat, penuh tawa, dan semua impian kita bisa terwujud bersama.
+    </p>
+
+    <button class="btn" onclick="showSecret()">Buka Pesan Spesial 💌</button>
+
+    <div class="secret-message" id="secretMsg">
+      "Setiap tahun baru terasa spesial bukan karena kembang apinya, tapi karena aku bisa melaluinya bersamamu. Aku sayang kamu!" 🌹
+    </div>
+  </div>
+
+  <script>
+    // Fungsi untuk menampilkan pesan tersembunyi
+    function showSecret() {
+      const msg = document.getElementById('secretMsg');
+      msg.style.display = 'block';
+    }
+
+    // Fungsi membuat efek hati melayang
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 400);
+  </script>
+
+</body>
+</html>
